@@ -1,0 +1,3 @@
+node_modules/**/*.js
+gulpfile.js
+app/bower_conponents/**/*.js
