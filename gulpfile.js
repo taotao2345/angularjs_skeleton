@@ -10,14 +10,16 @@ var uglify = require('gulp-uglify');
 var jsFilePaths = [
   'app/components/*.js',
   'app/layout/*.js',
-  'app/services/*.js'
-  'app/example/*.js',
+  'app/services/*.js',
+  'app/example/*.js'
 ];
+
+var minifiedJsFileName = 'all.min.js';
 
 gulp.task('js', function() {
   return gulp.src(jsFilePaths)
     .pipe(sourcemaps.init())
-    .pipe(concat('all.min.js', {
+    .pipe(concat(minifiedJsFileName, {
       newLine: ';'
     }))
     .pipe(ngAnnotate({
@@ -31,6 +33,9 @@ gulp.task('js', function() {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./app/dist'));
 });
+
+gulp.task('commit', ['lint', 'test', 'js'], function() {});
+gulp.task('component', ['lint', 'test', 'js', 'cover'], function() {});
 
 gulp.task('watch', function() {
   gulp.watch(jsFilePaths, ['js']);
