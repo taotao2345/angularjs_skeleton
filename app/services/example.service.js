@@ -1,25 +1,23 @@
 (function() {
   'use strict';
 
-  angular
-    .module('app.example.service', [
-      'ngResource'
-    ])
-    .service('ExampleService', ExampleService);
-
   function ExampleService($resource) {
     return {
-      getExample: getExample
+      getExample: function() {
+        return $resource('data/example.json', {}, {
+          query: {
+            method: 'GET',
+            params: {},
+            isArray: true
+          }
+        });
+      }
     };
-
-    function getExample() {
-      return $resource('example.json', {}, {
-        query: {
-          method: 'GET',
-          params: {},
-          isArray: true
-        }
-      });
-    }
   }
+
+  ExampleService.$inject = ['$resource'];
+
+  angular
+    .module(appName)
+    .service('ExampleService', ExampleService);
 })();

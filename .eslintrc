@@ -50,11 +50,10 @@
       2
     ],
     "strict": [
-      2,
-      "global"
+      2
     ]
   },
   "globals": {
-    "angular"
+    "angular": true
   }
 }

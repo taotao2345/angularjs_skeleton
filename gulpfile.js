@@ -9,7 +9,6 @@ var uglify = require('gulp-uglify');
 
 var jsFilePaths = [
   'app/components/*.js',
-  'app/layout/*.js',
   'app/services/*.js',
   'app/example/*.js'
 ];
