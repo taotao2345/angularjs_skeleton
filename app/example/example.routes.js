@@ -8,7 +8,7 @@
         url: '/example',
         views: {
           '@': {
-            templateUrl: 'partials/example.html'
+            templateUrl: 'list.html'
           }
         }
       })
@@ -23,13 +23,13 @@
     .module(appName)
     .config(routeConfig);
 
-  function runExample($rootScope) {
+  function runBlock($rootScope) {
     $rootScope.userId = 'hoge';
   }
 
-  runExample.$inject = ['$rootScope'];
+  runBlock.$inject = ['$rootScope'];
 
   angular
     .module(appName)
-    .run(runExample);
+    .run(runBlock);
 })();

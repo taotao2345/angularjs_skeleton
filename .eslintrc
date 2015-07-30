@@ -54,6 +54,7 @@
     ]
   },
   "globals": {
-    "angular": true
+    "angular": true,
+    "emitter": true
   }
 }

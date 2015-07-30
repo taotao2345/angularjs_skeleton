@@ -4,7 +4,7 @@
   function ExampleService($resource) {
     return {
       getExample: function() {
-        return $resource('data/example.json', {}, {
+        return $resource('/app/data/example.json', {}, {
           query: {
             method: 'GET',
             params: {},
